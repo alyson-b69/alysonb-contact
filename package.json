@@ -1,0 +1,23 @@
+{
+  "name": "alysonb-contact",
+  "version": "1.0.0",
+  "description": "heroku app to send mail with nodemailer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyson-b69/alysonb-contact.git"
+  },
+  "keywords": [
+    "sendmail",
+    "nodemailer"
+  ],
+  "author": "Alysonb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alyson-b69/alysonb-contact/issues"
+  },
+  "homepage": "https://github.com/alyson-b69/alysonb-contact#readme"
+}
