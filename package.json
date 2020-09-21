@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/alyson-b69/alysonb-contact/issues"
   },
-  "homepage": "https://github.com/alyson-b69/alysonb-contact#readme"
+  "homepage": "https://github.com/alyson-b69/alysonb-contact#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.11"
+  }
 }
