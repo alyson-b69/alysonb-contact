@@ -6,10 +6,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-app.use(express.static("src"));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -19,6 +15,11 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.use(express.static("src"));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.post("/send-email", function (req, res, next) {
   const transporter = nodeMailer.createTransport({
