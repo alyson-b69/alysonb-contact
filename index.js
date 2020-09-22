@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static("src"));
+// app.use(express.static("src"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
