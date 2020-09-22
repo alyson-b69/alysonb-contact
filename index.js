@@ -12,7 +12,7 @@ app.use(express.static('src'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.post('/send-email', (req, res) {
+app.post('/send-email', function (req, res) {
   const transporter = nodeMailer.createTransport({
       host: 'smtp.gmail.com',
       service: "gmail",
