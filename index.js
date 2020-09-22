@@ -12,7 +12,7 @@ app.use(express.static('src'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.post('/send-email', function (req, res) {
+app.post('/send-email', (req, res) {
   const transporter = nodeMailer.createTransport({
       host: 'smtp.gmail.com',
       service: "gmail",
@@ -37,14 +37,18 @@ app.post('/send-email', function (req, res) {
         req.body.message
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (err, info) => {
       if (error) {
-          return console.log(error);
+          res.send(err);
       }
-      console.log('Message %s sent: %s', info.messageId, info.response);
+      else {
+          res.status(200).json({
+              success: true,
+              message: 'Email Sent'
+          })
+      }
   });
-  res.writeHead(301, { Location: 'index.html' });
-  res.end();
+
 });
 
 const server = app.listen(4000, function(){
