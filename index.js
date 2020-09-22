@@ -49,7 +49,12 @@ app.post("/send-email", function (req, res) {
   });
 });
 
-const server = app.listen(4000, function () {
-  const port = server.address().port;
-  console.log("Server started at http://localhost:%s", port);
+app.listen(process.env.PORT || 5000, () => {
+  const port = process.env.PORT;
+  console.log("Server started at", port);
 });
+
+// const server = app.listen(4000, function () {
+//   const port = server.address().port;
+//   console.log("Server started at http://localhost:%s", port);
+// });
