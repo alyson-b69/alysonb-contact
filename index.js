@@ -12,8 +12,16 @@ app.use(express.static("src"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post("/send-email", function (req, res) {
-  console.log(req);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://alyson-b.netlify.app/");
+  res.header(
+    "Access-Control-Allow-Header",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+app.post("/send-email", function (req, res, next) {
   const transporter = nodeMailer.createTransport({
     host: "smtp.gmail.com",
     service: "gmail",
