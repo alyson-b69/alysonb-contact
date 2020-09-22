@@ -16,8 +16,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(express.static("src"));
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -47,7 +45,8 @@ app.post("/send-email", function (req, res, next) {
   };
 
   transporter.sendMail(mailOptions, (err, info) => {
-    if (error) {
+    if (err) {
+      console.log(err);
       res.send(err);
     } else {
       res.status(200).json({
