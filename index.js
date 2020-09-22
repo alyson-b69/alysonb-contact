@@ -7,19 +7,19 @@ dotenv.config();
 
 const app = express();
 
+app.use( (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://alyson-b.netlify.app');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+}
+
 app.use(express.static("src"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin :", "https://alyson-b.netlify.app");
-  res.header(
-    "Access-Control-Allow-Headers :",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 app.post("/send-email", function (req, res, next) {
   const transporter = nodeMailer.createTransport({
