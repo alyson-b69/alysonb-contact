@@ -11,17 +11,14 @@ app.use(express.static("src"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use( (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://alyson-b.netlify.app');
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  next()
-}
-
-
-
+  next();
+});
 
 app.post("/send-email", function (req, res, next) {
   const transporter = nodeMailer.createTransport({
