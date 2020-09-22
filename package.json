@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/alyson-b69/alysonb-contact#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nodemailer": "^6.4.11"
-  }
+  },
+  "devDependencies": {}
 }
