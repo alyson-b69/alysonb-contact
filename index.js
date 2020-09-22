@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/send-email", function (req, res) {
+  console.log(req);
   const transporter = nodeMailer.createTransport({
     host: "smtp.gmail.com",
     service: "gmail",
