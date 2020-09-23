@@ -4,8 +4,16 @@ const nodeMailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 dotenv.config();
+const rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 3 * 60 * 1000, // 3 minutes
+  max: 1, // limit each IP to 1 requests per windowMs
+});
 
 const app = express();
+
+app.use(limiter);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://alyson-b.netlify.app");
