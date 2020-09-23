@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const nodeMailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
@@ -7,8 +6,8 @@ dotenv.config();
 const rateLimit = require("express-rate-limit");
 
 const limiter = rateLimit({
-  windowMs: 3 * 60 * 1000, // 3 minutes
-  max: 1, // limit each IP to 1 requests per windowMs
+  windowMs: 3 * 60 * 1000,
+  max: 1, // per IP
 });
 
 const app = express();
@@ -54,7 +53,6 @@ app.post("/send-email", function (req, res, next) {
 
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log(err);
       res.send(err);
     } else {
       res.status(200).json({
