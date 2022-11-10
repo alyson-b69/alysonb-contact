@@ -42,7 +42,7 @@ app.post("/send-email", (req, res, next) => {
     });
 
     const mailOptions = {
-        from: `Alyson CV <${process.env.EMAIL}>`,
+        from: `Alyson CV website <${process.env.EMAIL}>`,
         to: process.env.EMAILTOSEND,
         subject: req.body.subject,
         html: `<html lang="fr">
