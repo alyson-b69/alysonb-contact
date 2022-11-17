@@ -1,13 +1,11 @@
 const express = require("express");
 const nodeMailer = require("nodemailer");
 const bodyParser = require("body-parser");
-const dotenv = require("dotenv");x
+const dotenv = require("dotenv");
 
-const cors = require('cors')
 dotenv.config();
 
 const app = express();
-app.use(cors())
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://alyson-b.fr");
